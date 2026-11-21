@@ -32,6 +32,13 @@
   var f = document.getElementById('app');
   f.src = EXEC + (location.search || '');
   f.onload = function(){ setTimeout(function(){ var s=document.getElementById('splash'); s.style.opacity=0; setTimeout(function(){ s.remove(); },500); },600); };
+  // التنقل بين المشاريع داخل التطبيق
+  window.addEventListener('message', function(e){
+    if (!/(\.googleusercontent\.com|script\.google\.com)$/.test(e.origin)) return;
+    var d = e.data || {};
+    if (d.ichello && e.source) e.source.postMessage({ icack: 1 }, '*');
+    if (typeof d.icgo === 'string') location.href = location.pathname + d.icgo;
+  });
   setTimeout(function(){ var s=document.getElementById('splash'); if(s){ s.style.opacity=0; setTimeout(function(){ s.remove(); },500); } },8000);
 </script>
 </body>
