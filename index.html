@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INTERFACE APP</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="INTERFACE APP">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#2c2c2e">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  html,body{margin:0;height:100%;background:#2c2c2e;overflow:hidden}
+  #app{position:fixed;inset:0;width:100%;height:100%;border:0;background:#2c2c2e;padding-top:env(safe-area-inset-top);box-sizing:border-box}
+  #splash{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:#2c2c2e;transition:opacity .5s;z-index:2}
+  #splash img{width:120px;height:120px;border-radius:28px}
+  #splash i{display:block;width:140px;height:4px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;position:relative}
+  #splash i:after{content:"";position:absolute;inset:0;width:40%;background:#5fb3a4;border-radius:4px;animation:b 1.2s ease-in-out infinite}
+  @keyframes b{0%{transform:translateX(140px)}100%{transform:translateX(-140px)}}
+</style>
+</head>
+<body>
+<div id="splash"><img src="icon-512.png" alt=""><i></i></div>
+<iframe id="app" allow="clipboard-read; clipboard-write; geolocation; camera" title="INTERFACE APP"></iframe>
+<script>
+  // رابط المنصة الأساسي (بدون مفاتيح)
+  var EXEC = 'https://script.google.com/macros/s/AKfycbyFIEV1qB2-85w3f5DBORvGQePC95geoo2Z2wHvrRmYpjJhLkTdh_HSD7d5_4GiyCmC/exec';
+  // أي إضافة على رابط التطبيق (مثل ?p=main&k=...) تنتقل للمنصة كما هي
+  var f = document.getElementById('app');
+  f.src = EXEC + (location.search || '');
+  f.onload = function(){ setTimeout(function(){ var s=document.getElementById('splash'); s.style.opacity=0; setTimeout(function(){ s.remove(); },500); },600); };
+  setTimeout(function(){ var s=document.getElementById('splash'); if(s){ s.style.opacity=0; setTimeout(function(){ s.remove(); },500); } },8000);
+</script>
+</body>
+</html>
