@@ -3,43 +3,198 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>INTERFACE APP</title>
+<title>INTERFACE APP — منصة إدارة الانترفيس والجهات</title>
+<meta name="description" content="منصة تربط المقاول والجهة المالكة والجهات الخدمية لإدارة التعارضات والتصاريح والخطابات حتى الإغلاق.">
+<meta property="og:title" content="INTERFACE APP — نحمي الخدمات ونبني المستقبل">
+<meta property="og:description" content="منصة إدارة الانترفيس والجهات لمشاريع البنية التحتية.">
+<meta property="og:image" content="https://ksainterface.com/ia-512.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="INTERFACE APP">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#101113">
+<meta name="theme-color" content="#f7f3ec">
 <link rel="apple-touch-icon" href="ia-180.png">
 <link rel="icon" type="image/png" href="ia-192.png">
 <link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  html,body{margin:0;height:100%;background:#101113;overflow:hidden}
-  #app{position:fixed;inset:0;width:100%;height:100%;border:0;background:#101113;padding-top:env(safe-area-inset-top);box-sizing:border-box}
-  #splash{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:#101113;transition:opacity .5s;z-index:2}
-  #splash img{width:120px;height:120px;border-radius:28px}
-  #splash i{display:block;width:140px;height:4px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;position:relative}
-  #splash i:after{content:"";position:absolute;inset:0;width:40%;background:#5fb3a4;border-radius:4px;animation:b 1.2s ease-in-out infinite}
-  @keyframes b{0%{transform:translateX(140px)}100%{transform:translateX(-140px)}}
+:root{--bg:#f7f3ec;--ink:#1d1a16;--mut:#6b6155;--line:#e4dccf;--teal:#2f8f80;--teal2:#6fcab9;--sand:#b4773a;--card:#fff}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans Arabic',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+a{color:inherit;text-decoration:none}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:rgba(247,243,236,.88);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.s{border-color:var(--line)}
+.nav{display:flex;align-items:center;gap:10px;height:62px;padding-top:env(safe-area-inset-top)}
+.nav img{width:34px;height:34px;border-radius:10px}
+.brand{font-weight:700;font-size:13px;letter-spacing:3px;direction:ltr}.brand span{color:var(--teal)}
+.nav .sp{margin-inline-start:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;padding:12px 20px;font-weight:700;font-size:15px;cursor:pointer;border:0;font-family:inherit;transition:transform .15s,box-shadow .15s}
+.btn:active{transform:scale(.97)}
+.dark{background:var(--ink);color:var(--bg)}
+.dark:hover{box-shadow:0 10px 24px rgba(29,26,22,.25)}
+.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.sm{padding:8px 16px;font-size:13px;border-radius:20px}
+.hero{display:grid;gap:18px;padding:26px 0 10px}
+.kick{color:var(--sand);font-weight:700;font-size:13px;letter-spacing:.5px}
+h1{font-size:clamp(34px,8vw,58px);line-height:1.3;margin:6px 0 10px;font-weight:700}
+h1 em{font-style:normal;color:var(--teal)}
+.lead{color:var(--mut);font-size:clamp(15px,2.2vw,18px);max-width:560px;margin:0}
+.ctas{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.ctas .btn{flex:1;min-width:150px}
+.scene{position:relative;border-radius:24px;overflow:hidden;background:linear-gradient(#f7f3ec,#efe6d6);box-shadow:0 20px 50px rgba(58,47,34,.12)}
+.scene svg{display:block;width:100%;height:auto}
+.flow{stroke-dasharray:14 10;animation:fl 3s linear infinite}
+@keyframes fl{to{stroke-dashoffset:-48}}
+.pulse{transform-origin:center;transform-box:fill-box;animation:pu 1.8s ease-out infinite}
+@keyframes pu{0%{transform:scale(.6);opacity:.7}100%{transform:scale(2.4);opacity:0}}
+.pin{position:absolute;background:#fff;border-radius:14px;padding:8px 11px;font-size:12px;box-shadow:0 12px 28px rgba(58,47,34,.2);line-height:1.6}
+.pin b{display:flex;align-items:center;gap:5px;font-size:13px}
+.pin svg.i{width:15px;height:15px}
+.p1{top:57%;left:6%}.p2{top:34%;right:3%}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;border-radius:20px;padding:4px 11px;background:rgba(0,0,0,.04)}
+.legend i{width:9px;height:9px;border-radius:50%}
+section{padding:46px 0 0}
+.sh small{color:var(--sand);font-weight:700;font-size:13px}
+.sh h2{font-size:clamp(24px,4.5vw,34px);line-height:1.45;margin:4px 0 6px}
+.sh p{color:var(--mut);margin:0;max-width:620px}
+.lanes{margin-top:18px;background:var(--card);border-radius:22px;padding:8px 14px;box-shadow:0 10px 30px rgba(58,47,34,.08)}
+.lane{display:grid;grid-template-columns:84px 1fr;align-items:center;min-height:86px;border-bottom:1px dashed var(--line)}
+.lane:last-child{border:0}
+.who{text-align:center;font-weight:700;font-size:13px}.who svg.i{display:block;margin:0 auto 4px;width:26px;height:26px}
+.track{position:relative;height:100%;min-height:86px}
+.ev{position:absolute;top:50%;transform:translateY(-50%);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:6px 10px;font-size:12px;line-height:1.5;white-space:nowrap}
+.ev b{display:block;font-size:12.5px}
+.ev.ok{border-color:var(--teal)}.ev.ok b{color:var(--teal)}
+.ev.wt{border-color:var(--sand)}.ev.wt b{color:var(--sand)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;font-size:11.5px;color:var(--mut);text-align:center}
+.steps b{display:block;color:var(--ink);font-size:13px}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.card{background:var(--card);border-radius:20px;padding:18px;box-shadow:0 8px 24px rgba(58,47,34,.07)}
+.ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:rgba(47,143,128,.1);color:var(--teal);margin-bottom:10px}
+.card h3{margin:0 0 4px;font-size:16px}
+.card p{margin:0;color:var(--mut);font-size:13.5px}
+.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.feats .card{display:flex;gap:14px;align-items:flex-start}
+.feats .ic{margin:0;flex:none}
+.cta{margin:46px 0 0;border-radius:26px;padding:30px 22px;background:linear-gradient(135deg,#2f8f80,#1d5e55);color:#fff;text-align:center}
+.cta h2{margin:0 0 6px;font-size:clamp(22px,4vw,30px)}
+.cta p{margin:0 0 18px;color:#d6efea}
+.cta .btn{background:#fff;color:#14453e}
+footer{text-align:center;color:#8a7f70;font-size:13px;padding:26px 0 calc(26px + env(safe-area-inset-bottom))}
+footer a{color:var(--teal);font-weight:700}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media (min-width:900px){
+ .hero{grid-template-columns:1fr 1.05fr;align-items:center;gap:40px;padding:50px 0 10px}
+ .ctas .btn{flex:0 0 auto}
+}
+@media (max-width:640px){
+ .tri,.feats{grid-template-columns:1fr}
+ .tri .card{display:flex;gap:14px;align-items:flex-start}.tri .ic{margin:0}
+ .lane{grid-template-columns:64px 1fr}
+ .ev{font-size:11px;padding:5px 8px}
+ .pin{font-size:11px;padding:6px 9px}.pin b{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){.flow,.pulse{animation:none}.rv{opacity:1;transform:none}}
+
+#appv{position:fixed;inset:0;background:#101113;display:none;z-index:20}
+#appv.on{display:block}
+#app{position:absolute;inset:0;width:100%;height:100%;border:0;background:#101113;padding-top:env(safe-area-inset-top)}
+#splash{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:#101113;transition:opacity .5s;z-index:2}
+#splash img{width:120px;height:120px;border-radius:28px}
+#splash i{display:block;width:140px;height:4px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;position:relative}
+#splash i:after{content:"";position:absolute;inset:0;width:40%;background:#5fb3a4;border-radius:4px;animation:b 1.2s ease-in-out infinite}
+@keyframes b{0%{transform:translateX(140px)}100%{transform:translateX(-140px)}}
+#tip{position:absolute;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:3;background:#fffffff2;color:var(--ink);border-radius:20px;padding:14px 16px;box-shadow:0 20px 40px rgba(0,0,0,.4);display:none;font-size:13.5px}
+#tip.on{display:block}
+#tip b{font-size:14.5px;display:block;margin-bottom:6px}
+#tip ol{margin:0;padding-inline-start:20px;line-height:1.9}
+#tip button{position:absolute;top:8px;left:10px;border:0;background:none;font-size:20px;color:#8a7f70;cursor:pointer}
 </style>
 </head>
 <body>
-<div id="splash"><img src="ia-512.png" alt=""><i></i></div>
-<iframe id="app" allow="clipboard-read; clipboard-write; geolocation; camera; microphone" title="INTERFACE APP"></iframe>
-<script>
-  // رابط المنصة الأساسي (بدون مفاتيح)
-  var EXEC = 'https://script.google.com/macros/s/AKfycbyFIEV1qB2-85w3f5DBORvGQePC95geoo2Z2wHvrRmYpjJhLkTdh_HSD7d5_4GiyCmC/exec';
-  // أي إضافة على رابط التطبيق (مثل ?p=main&k=...) تنتقل للمنصة كما هي
-  var f = document.getElementById('app');
-  f.src = EXEC + (location.search || '');
-  f.onload = function(){ setTimeout(function(){ var s=document.getElementById('splash'); s.style.opacity=0; setTimeout(function(){ s.remove(); },500); },600); };
-  // التنقل بين المشاريع داخل التطبيق
-  window.addEventListener('message', function(e){
-    if (!/(\.googleusercontent\.com|script\.google\.com)$/.test(e.origin)) return;
-    var d = e.data || {};
-    if (d.ichello && e.source) e.source.postMessage({ icack: 1 }, '*');
-    if (typeof d.icgo === 'string') location.href = location.pathname + d.icgo;
-  });
-  setTimeout(function(){ var s=document.getElementById('splash'); if(s){ s.style.opacity=0; setTimeout(function(){ s.remove(); },500); } },8000);
-</script>
-</body>
-</html>
+
+<div id="land">
+<header id="hd"><div class="wrap nav">
+<img src="ia-192.png" alt="">
+<div class="brand">INTERFACE <span>APP</span></div>
+<span class="sp"></span>
+<a class="btn dark sm" href="#" data-enter>دخول</a>
+</div></header>
+
+<main class="wrap">
+<div class="hero">
+<div>
+<div class="kick">منصة إدارة الانترفيس والجهات</div>
+<h1>نحمي الخدمات…<br>ونبني <em>المستقبل</em></h1>
+<p class="lead">نحدد كل خدمة تتقاطع مع مشروعك، ونوصلها للجهة المختصة، ونتابعها حتى الإغلاق.</p>
+<div class="ctas">
+<a class="btn dark" href="#" data-enter>دخول المنصة
+<svg class="i" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></a>
+<a class="btn ghost" href="mailto:info@ksainterface.com?subject=%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20INTERFACE%20APP">طلب عرض</a>
+</div>
+</div>
+
+<div>
+<div class="scene">
+<svg viewBox="0 0 640 520" role="img" aria-label="مقطع عرضي يوضح جسراً فوق شبكة خدمات تحت الأرض">
+<defs>
+<linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcc6a2"/><stop offset="1" stop-color="#b38f60"/></linearGradient>
+<pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.3" fill="#9a7b4f" opacity=".4"/></pattern>
+</defs>
+<g fill="#e3d7c3">
+<rect x="20" y="70" width="40" height="110"/><rect x="68" y="40" width="30" height="140"/><rect x="106" y="90" width="48" height="90"/>
+<rect x="470" y="56" width="34" height="124"/><rect x="512" y="22" width="26" height="158"/><path d="M525 0l13 22h-26z"/><rect x="546" y="80" width="64" height="100"/>
+</g>
+<rect x="36" y="108" width="568" height="16" rx="5" fill="#2a2520"/>
+<g fill="#3b342d"><rect x="150" y="124" width="18" height="56"/><rect x="311" y="124" width="18" height="56"/><rect x="472" y="124" width="18" height="56"/></g>
+<rect x="0" y="176" width="640" height="12" fill="#4a4239"/>
+<line x1="0" y1="182" x2="640" y2="182" stroke="#f7f3ec" stroke-width="2.5" stroke-dasharray="18 12"/>
+<rect x="0" y="188" width="640" height="332" fill="url(#soil)"/>
+<rect x="0" y="188" width="640" height="332" fill="url(#dots)"/>
+<g fill="#7c6a54" opacity=".75"><rect x="154" y="188" width="10" height="120"/><rect x="315" y="188" width="10" height="170"/><rect x="476" y="188" width="10" height="120"/></g>
+<path d="M0 238C170 238 230 260 640 246" stroke="#e0a526" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path class="flow" d="M0 238C170 238 230 260 640 246" stroke="#fff6dc" stroke-width="2" fill="none" opacity=".7"/>
+<path d="M0 300C190 312 390 278 640 296" stroke="#2b7bbd" stroke-width="18" fill="none" stroke-linecap="round"/>
+<path class="flow" d="M0 300C190 312 390 278 640 296" stroke="#d9ecfb" stroke-width="2.5" fill="none" opacity=".7"/>
+<path d="M0 362C150 352 420 380 640 358" stroke="#7a52b3" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path d="M0 420C230 432 410 404 640 418" stroke="#4a8f3c" stroke-width="14" fill="none" stroke-linecap="round"/>
+<path d="M0 480C290 472 420 490 640 476" stroke="#6b6155" stroke-width="20" fill="none" stroke-linecap="round" opacity=".85"/>
+<circle class="pulse" cx="320" cy="292" r="12" fill="#e3463b"/>
+<circle cx="320" cy="292" r="8" fill="#e3463b" stroke="#fff" stroke-width="2.5"/>
+<circle class="pulse" cx="159" cy="244" r="10" fill="#e0a526" style="animation-delay:.6s"/>
+<circle cx="159" cy="244" r="6.5" fill="#b37a0c" stroke="#fff" stroke-width="2"/>
+<circle cx="481" cy="250" r="7" fill="#2f8f80" stroke="#fff" stroke-width="2"/>
+</svg>
+<div class="pin p1"><b><svg class="i" viewBox="0 0 24 24" style="color:#e3463b"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>تعارض مياه</b>تحت القاعدة 2 · <span style="color:var(--sand);font-weight:700">لدى الجهة</span></div>
+<div class="pin p2"><b style="color:var(--teal)"><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>كهرباء</b>تم النقل</div>
+</div>
+<div class="legend">
+<span><i style="background:#e0a526"></i>كهرباء</span><span><i style="background:#2b7bbd"></i>مياه</span><span><i style="background:#7a52b3"></i>اتصالات</span><span><i style="background:#4a8f3c"></i>صرف</span><span><i style="background:#6b6155"></i>غاز</span>
+</div>
+</div>
+</div>
+
+<section class="rv">
+<div class="sh"><small>كيف تعمل</small><h2>تعارض واحد… ثلاث جهات<br>ومسؤولية واضحة في كل مرحلة</h2><p>كل تعارض يمر بمسار موحّد، وتعرف كل جهة دورها والإجراء المطلوب منها وموعده.</p></div>
+<div class="lanes">
+<div class="lane"><div class="who"><svg class="i" viewBox="0 0 24 24"><path d="M2 18h20"/><path d="M4 18v-2a8 8 0 0 1 16 0v2"/><path d="M10 8V5h4v3"/><path d="M8 18v-4M16 18v-4"/></svg>المقاول</div>
+<div class="track"><div class="ev" style="right:2%"><b>الاكتشاف</b>صور + موقع + مخطط</div><div class="ev ok" style="left:2%"><b>الإغلاق</b>تنفيذ الحل</div></div></div>
+<div class="lane"><div class="who"><svg class="i" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V10M9 21V10M15 21V10M19 21V10"/><path d="M2 10h20L12 3 2 10z"/></svg>الجهة المالكة</div>
+<div class="track"><div class="ev" style="right:24%"><b>الاعتماد</b>خطاب دعم رسمي</div></div></div>
+<div class="lane"><div class="who"><svg class="i" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>الجهة الخدمية</div>
+<div class="track"><div class="ev wt" style="right:48%"><b>دراسة الحل</b>متابعة وتذكير</div></div></div>
+</div>
+<div class="steps"><div><b>١</b>رصد</div><div><b>٢</b>اعتماد</div><div><b>٣</b>حل</div><div><b>٤</b>إغلاق</div></div>
+</section>
+
+<section class="rv">
+<div class="sh"><small>منصة واحدة</small><h2>كل طرف يرى ما يخصه</h2></div>
+<div class="tri">
+<div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M2 18h20"/><path d="M4 18v-2a8 8 0 0 1 16 0v2"/><path d="M10 8V5h4v3"/><path d="M8 18v-4M16 18v-4"/></svg></div><div><h3>المقاول</h3><p>يرصد التعارضات ويرفع المستندات ويتابع الحلول والتصاريح.</p></div></div>
