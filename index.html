@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- INTERFACE APP site v6 -->
+<!-- INTERFACE APP site v7 -->
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
@@ -330,6 +330,7 @@ function startApp(){
   document.querySelector('meta[name=theme-color]').setAttribute('content','#101113');
   document.body.style.overflow = 'hidden';
   document.documentElement.style.background = document.body.style.background = '#101113'; document.documentElement.className += ' app';
+  if (standalone) { var fitH=function(){ var lan=Math.abs(window.orientation||0)===90, H=lan?Math.min(screen.width,screen.height):Math.max(screen.width,screen.height), h=Math.max(window.innerHeight||0, H||0); [document.getElementById('appv'),document.getElementById('splash')].forEach(function(el){ if(el){ el.style.setProperty('top','0','important'); el.style.setProperty('bottom','auto','important'); el.style.setProperty('height',h+'px','important'); } }); }; fitH(); window.addEventListener('resize',fitH); window.addEventListener('orientationchange',function(){ setTimeout(fitH,300); }); }
   var f = document.getElementById('app');
   f.onload = function(){ if (WEL) { setTimeout(welDone,WMIN<1000?2500:4000); } else setTimeout(hideSplash,600); };
   f.src = EXEC + (location.search || '');
