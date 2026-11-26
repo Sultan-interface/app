@@ -90,6 +90,19 @@ footer{text-align:center;color:#8a7f70;font-size:13px;padding:26px 0 calc(26px +
 footer a{color:var(--teal);font-weight:700}
 .rv{transition:opacity .7s,transform .7s}
 .rv.in{opacity:1;transform:none}
+.lnk{display:none;gap:22px;margin-inline-start:28px;font-size:14px;font-weight:500;color:var(--mut)}.lnk a:hover{color:var(--ink)}
+.mbtn{background:none;border:0;padding:6px;color:var(--ink);cursor:pointer;display:flex}
+.mlnk{display:none;flex-direction:column;padding:6px 20px 14px;border-bottom:1px solid var(--line)}.mlnk a{padding:11px 0;border-bottom:1px solid var(--line);font-weight:500}.mlnk a:last-child{border:0}
+body.mo .mlnk{display:flex}
+html{scroll-behavior:smooth}section[id]{scroll-margin-top:80px}
+.faq{display:grid;gap:10px;margin-top:18px}.faq details{background:var(--card);border-radius:16px;padding:14px 18px;box-shadow:0 6px 18px rgba(58,47,34,.06)}.faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}.faq summary::after{content:"+";color:var(--teal);font-size:20px;line-height:1}.faq details[open] summary::after{content:"−"}.faq p{margin:10px 0 0;color:var(--mut);font-size:14.5px}
+.cgrid{display:grid;gap:12px;margin-top:18px}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:12px}.cform label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700}.cform .full{grid-column:1/-1}
+.cform input,.cform select,.cform textarea{font:inherit;font-weight:400;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:var(--bg);color:var(--ink);width:100%}
+.cinfo{display:grid;gap:14px;align-content:start}.cinfo>a,.cinfo>div{display:flex;gap:12px;align-items:center}.cinfo .ic{margin:0;flex:none}.cinfo b{display:block;font-size:14.5px}.cinfo small{color:var(--mut);font-size:13px}
+.flk{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:10px}.flk a{color:var(--ink);font-weight:500}
+@media (min-width:900px){.lnk{display:flex}.mbtn{display:none}.cgrid{grid-template-columns:1.4fr 1fr}}
+@media (max-width:640px){.cform{grid-template-columns:1fr}}
 @media (min-width:900px){
  .hero{grid-template-columns:1fr 1.05fr;align-items:center;gap:40px;padding:50px 0 10px}
  .ctas .btn{flex:0 0 auto}
@@ -106,6 +119,7 @@ footer a{color:var(--teal);font-weight:700}
 #appv{position:fixed;inset:0;background:#101113;display:none;z-index:20}
 #appv.on{display:block}
 #app{position:absolute;inset:0;width:100%;height:100%;border:0;background:#101113;padding-top:env(safe-area-inset-top)}
+#splash.wel{background:#0b1413}#splash.wel:before{content:"";position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 40%,#1f4a43 0%,#0b1413 70%)}#splash.wel:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(95,179,164,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(95,179,164,.06) 1px,transparent 1px);background-size:26px 26px}#splash.wel img,#splash i{display:none!important}
 #splash{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:#101113;transition:opacity .5s;z-index:2}
 #splash img{width:120px;height:120px;border-radius:28px}
 #splash i{display:block;width:140px;height:4px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;position:relative}
@@ -116,7 +130,10 @@ footer a{color:var(--teal);font-weight:700}
 #tip b{font-size:14.5px;display:block;margin-bottom:6px}
 #tip ol{margin:0;padding-inline-start:20px;line-height:1.9}
 #tip button{position:absolute;top:8px;left:10px;border:0;background:none;font-size:20px;color:#8a7f70;cursor:pointer}
+#splash.spw{background:#0b1413;display:block;overflow:hidden;font-family:-apple-system,"SF Arabic","Geeza Pro",Tahoma,sans-serif;color:#fff}#splash.spw .swg{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 40%,#1f4a43 0%,#0b1413 70%)}#splash.spw .swg:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(95,179,164,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(95,179,164,.06) 1px,transparent 1px);background-size:26px 26px}#splash.spw .swr{position:absolute;left:50%;top:30%;width:300px;height:300px;margin:-150px;border-radius:50%;border:1px solid rgba(201,164,76,.3);animation:hyp 2.6s ease-out infinite}#splash.spw .swr.r2{animation-delay:.9s}#splash.spw .swc{position:absolute;left:0;right:0;top:22%;text-align:center;padding:0 22px}#splash.spw .swl{display:flex;max-width:400px;margin:0 auto;height:84px;border-radius:20px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 0 1px rgba(201,164,76,.35);animation:hyin .8s cubic-bezier(.2,1.3,.4,1) both;position:relative}#splash.spw .swl:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.4) 50%,transparent 65%);transform:translateX(-120%);animation:hbshine 1.3s .8s ease-out both}#splash.spw .swt{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 14px;background:#fff}#splash.spw .swt img{max-width:100%;max-height:100%;object-fit:contain;display:block;height:auto;box-shadow:none;border-radius:0}#splash.spw .swk{display:block;margin-top:44px;font:700 11px Menlo,monospace;letter-spacing:5px;color:#5fb3a4;animation:hyf .5s .4s both}#splash.spw h1{font-size:34px;font-weight:900;margin:14px 0 0;line-height:1.45}#splash.spw h1 span,#splash.spw h1 em{display:inline-block;animation:hyw .55s both}#splash.spw .w1{animation-delay:.6s}#splash.spw .w2{animation-delay:.9s}#splash.spw h1 em{font-style:normal;animation-delay:1.25s;background:linear-gradient(90deg,#e9d18a,#c9a44c);-webkit-background-clip:text;background-clip:text;color:transparent}#splash.spw .swp{color:rgba(255,255,255,.72);margin:16px 0 0;font-size:15px;line-height:1.7;animation:hyf .6s 1.6s both}#splash.spw .swh{position:absolute;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom));text-align:center;animation:hyw .6s 1.9s both}#splash.spw .swh b{display:block;font-size:17px}#splash.spw .swh small{color:#c9a44c;font-size:13px}#splash.spw .swb{position:absolute;left:28%;right:28%;bottom:calc(50px + env(safe-area-inset-bottom));height:3px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}#splash.spw .swb i{display:block;height:100%;width:0;background:linear-gradient(90deg,#5fb3a4,#c9a44c);animation:hybar 2.6s linear both}#splash.spw .swl{position:absolute;left:22px;right:22px;top:calc(env(safe-area-inset-top) + 34px);margin:0 auto;height:76px}#splash.spw .swr{top:38%}#splash.spw .swi{position:absolute;left:50%;top:38%;width:110px;height:110px;margin:-55px;border-radius:30px;border:3px solid #5fb3a4;display:grid;place-items:center;background:#0f1f1d;box-shadow:0 0 60px rgba(95,179,164,.4);animation:hyin .7s .3s cubic-bezier(.2,1.4,.4,1) both}#splash.spw .swc{top:55%}#splash.spw .swk{margin-top:0}#splash.spw{position:fixed;top:0;left:0;right:0;bottom:0;min-height:100vh;z-index:5;transition:opacity .45s}#splash.spw img{width:auto;height:auto;border-radius:0}#splash.spw i{display:none}#splash.spw .swi svg{display:block}@keyframes hyp{from{transform:scale(.5);opacity:1}to{transform:scale(1.5);opacity:0}}@keyframes hyin{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}@keyframes hyw{from{opacity:0;transform:translateY(14px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}@keyframes hyf{from{opacity:0}to{opacity:1}}@keyframes hbshine{to{transform:translateX(120%)}}#splash.wel{position:fixed;top:0;left:0;right:0;bottom:0;min-height:100vh}
 </style>
+<style>html.app,html.app body{background:#101113!important}</style>
+<script>try{if(localStorage.getItem('ia-in')==='1'||/[?&]p=/.test(location.search)){document.documentElement.className+=' app';var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#0b1413')}}catch(e){}</script>
 </head>
 <body>
 
@@ -124,9 +141,11 @@ footer a{color:var(--teal);font-weight:700}
 <header id="hd"><div class="wrap nav">
 <img src="ia-192.png" alt="">
 <div class="brand">INTERFACE <span>APP</span></div>
+<nav class="lnk"><a href="#how">كيف تعمل</a><a href="#feat">المزايا</a><a href="#about">من نحن</a><a href="#faq">الأسئلة</a><a href="#contact">تواصل معنا</a></nav>
 <span class="sp"></span>
+<button class="mbtn" aria-label="القائمة" onclick="document.body.classList.toggle('mo')"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 <a class="btn dark sm" href="#" data-enter>دخول</a>
-</div></header>
+</div><nav class="mlnk" onclick="document.body.classList.remove('mo')"><a href="#how">كيف تعمل</a><a href="#feat">المزايا</a><a href="#about">من نحن</a><a href="#faq">الأسئلة الشائعة</a><a href="#contact">تواصل معنا</a><a href="#privacy">الخصوصية</a></nav></header>
 
 <main class="wrap">
 <div class="hero">
@@ -181,7 +200,7 @@ footer a{color:var(--teal);font-weight:700}
 </div>
 </div>
 
-<section class="rv">
+<section class="rv" id="how">
 <div class="sh"><small>كيف تعمل</small><h2>تعارض واحد… ثلاث جهات<br>ومسؤولية واضحة في كل مرحلة</h2><p>كل تعارض يمر بمسار موحّد، وتعرف كل جهة دورها والإجراء المطلوب منها وموعده.</p></div>
 <div class="lanes">
 <div class="lane"><div class="who"><svg class="i" viewBox="0 0 24 24"><path d="M2 18h20"/><path d="M4 18v-2a8 8 0 0 1 16 0v2"/><path d="M10 8V5h4v3"/><path d="M8 18v-4M16 18v-4"/></svg>المقاول</div>
@@ -203,7 +222,7 @@ footer a{color:var(--teal);font-weight:700}
 </div>
 </section>
 
-<section class="rv">
+<section class="rv" id="feat">
 <div class="sh"><small>المزايا</small><h2>أدوات تختصر التنسيق</h2></div>
 <div class="feats">
 <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg></div><div><h3>سجل انترفيس مختصر</h3><p>جدول واحد بكل التعارضات وجهة الإجراء والتأخير، مع تصدير Excel وPDF.</p></div></div>
@@ -215,15 +234,57 @@ footer a{color:var(--teal);font-weight:700}
 </div>
 </section>
 
-<div class="cta rv">
-<h2>تريد تجربتها على مشروعك؟</h2>
-<p>تواصل معنا لترتيب عرض مباشر للمنصة.</p>
-<a class="btn" href="mailto:info@ksainterface.com?subject=%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20INTERFACE%20APP">info@ksainterface.com</a>
+<section class="rv" id="about">
+<div class="sh"><small>من نحن</small><h2>من الميدان… إلى منصة</h2><p>INTERFACE APP منصة سعودية بناها مختصون في إدارة الانترفيس والجهات بمشاريع البنية التحتية في الرياض، من واقع العمل اليومي مع الجهات الخدمية والجهة المالكة: الحظر، والتنسيق، والتعارضات، والخطابات، والمخالفات.</p></div>
+<div class="tri">
+<div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></div><div><h3>رسالتنا</h3><p>أن يكون لكل تعارض مسار واضح، ولكل إجراء مسؤول وموعد ووثيقة.</p></div></div>
+<div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>رؤيتنا</h3><p>تنسيق أسرع بين المقاول والجهة المالكة والجهات الخدمية، دعماً لمستهدفات تطوير البنية التحتية.</p></div></div>
+<div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h3>قيمنا</h3><p>الوضوح، والتوثيق، والحياد بين الأطراف، وحماية بيانات كل مشروع.</p></div></div>
 </div>
+</section>
+
+<section class="rv" id="faq">
+<div class="sh"><small>الأسئلة الشائعة</small><h2>أسئلة تتكرر</h2></div>
+<div class="faq">
+<details><summary>هل تحل المنصة محل منصة مركز مشاريع البنية التحتية؟</summary><p>لا. منصة المركز هي القناة الرسمية للتراخيص. INTERFACE APP تنظّم وتوثّق ما يحدث حولها: متابعة الحظر والتنسيق مع الجهات، والتعارضات، والخطابات، والمخالفات.</p></details>
+<details><summary>من يرى بيانات المشروع؟</summary><p>فريق المشروع حسب الصلاحية التي يحددها مدير المنصة، والجهة المالكة ترى ما يخصها فقط. كل مشروع معزول عن غيره.</p></details>
+<details><summary>هل تحتاج الجهات الخدمية حساباً؟</summary><p>لا. تصلها الخطابات والمعلومات من فريق المشروع، والمرفقات موثقة على المنصة بتاريخها.</p></details>
+<details><summary>هل تعمل على الجوال؟</summary><p>نعم، وتُثبَّت على الشاشة الرئيسية كتطبيق من متصفح Safari أو Chrome.</p></details>
+<details><summary>كيف نبدأ على مشروعنا؟</summary><p>تواصل معنا، ونجهز لكم مشروعاً تجريبياً ونرتب عرضاً مباشراً للفريق.</p></details>
+</div>
+</section>
+
+<section class="rv" id="contact">
+<div class="sh"><small>تواصل معنا</small><h2>يسعدنا تواصلك</h2><p>اكتب رسالتك وتصلنا على البريد الرسمي للمنصة.</p></div>
+<div class="cgrid">
+<form class="card cform" onsubmit="return sendC(event)">
+<label>الاسم<input id="c_n" required></label>
+<label>الجهة / الشركة<input id="c_o"></label>
+<label>الجوال<input id="c_p" type="tel" dir="ltr"></label>
+<label>نوع الطلب<select id="c_t"><option>طلب عرض للمنصة</option><option>استفسار</option><option>دعم فني</option><option>شراكة</option></select></label>
+<label class="full">الرسالة<textarea id="c_m" rows="4" required></textarea></label>
+<button class="btn dark full" type="submit">إرسال</button>
+</form>
+<div class="card cinfo">
+<a href="mailto:info@ksainterface.com"><span class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><b>البريد الإلكتروني</b><small dir="ltr">info@ksainterface.com</small></div></a>
+<div><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><b>الموقع</b><small>الرياض، المملكة العربية السعودية</small></div></div>
+<div><span class="ic"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>ساعات العمل</b><small>الأحد – الخميس</small></div></div>
+</div>
+</div>
+</section>
+
+<section class="rv" id="privacy">
+<div class="sh"><small>الخصوصية وشروط الاستخدام</small><h2>بياناتك لمشروعك فقط</h2></div>
+<div class="faq">
+<details><summary>سياسة الخصوصية</summary><p>نجمع ما يُدخله فريق المشروع من بيانات ومرفقات لغرض إدارة الانترفيس فقط. تُحفظ بيانات كل مشروع في مساحة مستقلة، ولا يطّلع عليها إلا من منحه مدير المنصة صلاحية. لا نبيع البيانات ولا نشاركها مع أي طرف. يمكن طلب تصدير البيانات أو حذفها عبر info@ksainterface.com.</p></details>
+<details><summary>شروط الاستخدام</summary><p>المنصة أداة تنظيم ومتابعة، ولا تُغني عن الإجراءات الرسمية لدى الجهات المختصة. المستخدم مسؤول عن صحة ما يُدخله، وعن الحفاظ على سرية بيانات دخوله.</p></details>
+</div>
+</section>
 </main>
 
 <footer class="wrap">
-<div>© <span id="yr"></span> INTERFACE APP · م. سلطان الشيخ</div>
+<div class="flk"><a href="#about">من نحن</a><a href="#faq">الأسئلة الشائعة</a><a href="#contact">تواصل معنا</a><a href="#privacy">الخصوصية</a></div>
+<div>© <span id="yr"></span> INTERFACE APP · جميع الحقوق محفوظة</div>
 <div><a href="mailto:info@ksainterface.com">info@ksainterface.com</a></div>
 </footer>
 </div>
@@ -243,6 +304,20 @@ function ls(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localS
 var standalone = (window.navigator.standalone === true) || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
 var wantAbout = location.hash === '#about';
 var started = false;
+var WEL=false,WT0=Date.now(),WREADY=false;
+(function(){ var sp=document.getElementById('splash'); if(!sp) return;
+  var m=location.search.match(/[?&]p=([^&]+)/);
+  if (!m) { if (ls('ia-in')==='1') sp.className='wel'; return; }
+  var p=decodeURIComponent(m[1]),W=null; try{ W=JSON.parse(ls('ia-w')||'null'); }catch(e){}
+  if (W && W.p && W.p!==p) W={nm:W.nm,zn:0};
+  W=W||{}; WEL=true;
+  var e=function(t){return String(t||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var h=new Date().getHours(),gr=h<12?'صباح الخير':'مساء الخير';
+  var L=[W.l2,W.l1].filter(function(u){return /^data:image\//.test(u||'')}).map(function(u){return '<span class="swt"><img src="'+u+'" alt=""></span>'}).join('');
+  sp.className='spw';
+  sp.innerHTML='<div class="swg"></div>'+(L?'<div class="swl">'+L+'</div>':'')+'<div class="swr"></div><div class="swr r2"></div><div class="swi"><svg width="62" height="62" viewBox="0 0 62 62"><rect x="14" y="14" width="34" height="34" rx="5" fill="none" stroke="#5fb3a4" stroke-width="5"/><g fill="#5fb3a4"><circle cx="16" cy="16" r="9"/><circle cx="46" cy="16" r="9"/><circle cx="16" cy="46" r="9"/><circle cx="46" cy="46" r="9"/></g></svg></div><div class="swc"><small class="swk">INTERFACE APP</small><h1><span class="w1">نحمي</span> <span class="w2">الخدمات…</span><br><em class="w3">ونبني المستقبل</em></h1><p class="swp">'+e(W.name)+'</p></div><div class="swh"><b>'+gr+(W.nm?'، '+e(W.nm):'')+' 👋</b><small>'+(W.zn?'عندك '+W.zn+' تذكير اليوم':'يوم موفق — خلّنا ننجز')+'</small></div>';
+})();
+function welDone(){ if(!WEL) return; var w=2700-(Date.now()-WT0); if(w>0){ setTimeout(welDone,w); return; } WEL=false; hideSplash(); }
 
 function hideSplash(){ var s=document.getElementById('splash'); if(!s) return; s.style.opacity=0; setTimeout(function(){ if(s.parentNode) s.remove(); },500); }
 
@@ -253,10 +328,11 @@ function startApp(){
   document.getElementById('appv').className = 'on';
   document.querySelector('meta[name=theme-color]').setAttribute('content','#101113');
   document.body.style.overflow = 'hidden';
+  document.documentElement.style.background = document.body.style.background = '#101113'; document.documentElement.className += ' app';
   var f = document.getElementById('app');
-  f.onload = function(){ setTimeout(hideSplash,600); };
+  f.onload = function(){ if (WEL) { setTimeout(welDone,4000); } else setTimeout(hideSplash,600); };
   f.src = EXEC + (location.search || '');
-  setTimeout(hideSplash, 8000);
+  setTimeout(function(){ if (WEL) welDone(); else hideSplash(); }, WEL?15000:8000);
   var ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
   if (ios && !standalone && !ls('ia-tip')) {
     setTimeout(function(){ document.getElementById('tip').className='on'; }, 4000);
@@ -270,14 +346,17 @@ window.addEventListener('message', function(e){
   if (!/(\.googleusercontent\.com|script\.google\.com)$/.test(e.origin)) return;
   var d = e.data || {};
   if (d.ichello && e.source) e.source.postMessage({ icack: 1 }, '*');
-  if (typeof d.icgo === 'string') location.href = location.pathname + d.icgo;
+  if (d.icready) welDone();
+  if (typeof d.icgo === 'string') { if (d.icw) { try{ localStorage.setItem('ia-w', JSON.stringify(d.icw)); }catch(x){ try{ d.icw.l1=d.icw.l2=''; localStorage.setItem('ia-w', JSON.stringify(d.icw)); }catch(y){} } } location.href = location.pathname + d.icgo; }
 });
 
 window.addEventListener('hashchange', function(){ if (location.hash === '#about' && started) location.reload(); });
 
+function sendC(e){e.preventDefault();var g=function(i){return document.getElementById(i).value.trim()};var t=g('c_t');var b=['الاسم: '+g('c_n'),'الجهة: '+g('c_o'),'الجوال: '+g('c_p'),'',g('c_m')].join('\n');location.href='mailto:info@ksainterface.com?subject='+encodeURIComponent(t+' — '+g('c_n'))+'&body='+encodeURIComponent(b);return false}
+
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-if (!wantAbout && (location.search || standalone || ls('ia-in'))) {
+if (!wantAbout && !/^#(how|feat|about|faq|contact|privacy)$/.test(location.hash) && (location.search || standalone || ls('ia-in'))) {
   startApp();
 } else {
   var hd = document.getElementById('hd');
